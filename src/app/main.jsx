@@ -10,7 +10,6 @@ class Init extends React.Component {
       <Head/>
       <div id="main">
         {this.props.children}
-
       </div>
     </div>
   }

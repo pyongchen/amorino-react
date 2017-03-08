@@ -15,11 +15,13 @@
     "babel-runtime": "^6.11.6",
     "console-polyfill": "^0.2.2",
     "echarts": "^3.4.0",
+    "express": "^4.15.2",
     "history": "^4.5.1",
     "jquery": "^3.1.1",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "moment": "^2.15.1",
+    "mysql": "^2.13.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.4.0"

@@ -9,10 +9,10 @@ class Slider extends React.Component {
   render() {
     return (
       <div id="slider">
-        <Carousel>
-          <div><img src={require('../img/slider1.png')}/></div>
-          <div><img src={require('../img/slider2.png')}/></div>
-          <div><img src={require('../img/slider3.png')}/></div>
+        <Carousel autoplay>
+          <div><img src={require('../img/home/slider1.png')}/></div>
+          <div><img src={require('../img/home/slider2.png')}/></div>
+          <div><img src={require('../img/home/slider3.png')}/></div>
         </Carousel>
       </div>
     )
