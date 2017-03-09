@@ -34,18 +34,18 @@ class Home extends React.Component {
         <div id="left">
           <img src={require('../img/home/' + content.left.img)}/>
           <div id="text">
-            <p>{content.left.title}</p>
-            <p>{content.left.text1}</p>
-            <p>{content.left.text2}</p>
+            <p className="title">{content.left.title}</p>
+            <p className="text">{content.left.text1}</p>
+            <p className="text text2">{content.left.text2}</p>
             <div className="colorBox"></div>
           </div>
         </div>
         <div id="right">
           <img src={require('../img/home/' + content.right.img)}/>
           <div id="text">
-            <p>{content.right.title}</p>
-            <p>{content.right.text1}</p>
-            <p>{content.right.text2}</p>
+            <p className="title">{content.right.title}</p>
+            <p className="text">{content.right.text1}</p>
+            <p className="text text2">{content.right.text2}</p>
             <div className="colorBox"></div>
           </div>
         </div>

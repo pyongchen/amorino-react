@@ -8,8 +8,8 @@ class Bottom extends React.Component {
   componentDidMount() {
 
   }
-  goTop(text) {
-    console.log('回到顶部' + text)
+  goTop() {
+    $('body').animate({scrollTop: 0}, 800);
   }
   render() {
     return (
@@ -23,7 +23,7 @@ class Bottom extends React.Component {
           </div>
         </div>
         <div id="bottom-right">
-          <a href="#" onClick={this.goTop.bind(this, '123')}>
+          <a onClick={this.goTop.bind(this)}>
             <img src={require('../img/frame/up.jpg')}/>
           </a>
           <p>Copyright @ 1998-2016 Amorino. All Right Reserved.</p>
