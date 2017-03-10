@@ -1,5 +1,5 @@
 let BaseTable = require('./baseTable');
-let conn = require('../mysql');
+let conn = require('../conn');
 
 function Slider() {
   let keys = ['url'];

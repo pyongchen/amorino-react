@@ -4,15 +4,26 @@ import '../sass/Slider.sass'
 
 class Slider extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      images: this.props.images
+    }
   }
+  componentWillMount() {
+    this.sliders = this.state.images.map((img, index) => {
+      return (
+        <div key={index}>
+          <img src={require('../img/home/' + img.url)}/>
+        </div>
+      )
+    });
+  }
+
   render() {
     return (
       <div id="slider">
         <Carousel autoplay>
-          <div><img src={require('../img/home/slider1.png')}/></div>
-          <div><img src={require('../img/home/slider2.png')}/></div>
-          <div><img src={require('../img/home/slider3.png')}/></div>
+          {this.sliders}
         </Carousel>
       </div>
     )

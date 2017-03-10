@@ -6,4 +6,4 @@ let config = {
   database: 'Amorino'
 };
 
-module.config = config;
+module.exports = config;

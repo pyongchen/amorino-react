@@ -8,7 +8,7 @@ class Init extends React.Component {
   render() {
     return <div>
       <Head/>
-      <div id="main" >
+      <div id="main">
         {this.props.children}
       </div>
     </div>

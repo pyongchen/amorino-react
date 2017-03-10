@@ -1,56 +1,71 @@
 import React from 'react'
 import Slider from '../components/Slider'
 import Bottom from '../components/Bottom'
+import axios from 'axios'
+import api from '../api/api.index'
 import '../sass/home.sass'
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bottom: {
-        code: 'code.jpg'
-      },
-      content: {
-        left: {
-          img: 'slider3.png',
-          title: 'Amorino',
-          text1: '以科学的精度',
-          text2: '衡量优雅'
-        },
-        right: {
-          img: 'slider2.png',
-          title: 'Amorino',
-          text1: '凭独具致匠心',
-          text2: '成就典范'
-        },
-      }
+      images: [],
+      bottom: '',
+      middle: ''
     }
   }
+  componentWillMount() {
+    axios.get(api.slider).then((res) => {
+      this.setState({
+        images: this.state.images.concat(res.data.data)
+      });
+    });
+    axios.get(api.bottom, {
+      params: {
+        lang: 'Zh'
+      }
+    }).then((res) => {
+      this.setState({
+        bottom: res.data.data[0]
+      })
+    });
+    axios.get(api.middle).then((res) => {
+      console.log(res.data.data);
+      this.setState({
+        middle: res.data.data
+      })
+    })
+  }
   render() {
-    let content = this.state.content;
+    let middle1 = this.state.middle[0],
+        middle2 = this.state.middle[1],
+        images = this.state.images,
+        bottom = this.state.bottom;
     return <div>
-      <Slider/>
-      <div id="content">
-        <div id="left">
-          <img src={require('../img/home/' + content.left.img)}/>
-          <div id="text">
-            <p className="title">{content.left.title}</p>
-            <p className="text">{content.left.text1}</p>
-            <p className="text text2">{content.left.text2}</p>
-            <div className="colorBox"></div>
+      {images.length != 0 ? <Slider images={images}/> : null}
+      {this.state.middle ?
+        <div id="content">
+          <div id="left">
+            <img src={require('../img/home/' + middle1.image)}/>
+            <div id="text">
+              <p className="title">{middle1.title}</p>
+              <p className="text">{middle1.text1}</p>
+              <p className="text text2">{middle1.text2}</p>
+              <div className="colorBox"></div>
+            </div>
           </div>
-        </div>
-        <div id="right">
-          <img src={require('../img/home/' + content.right.img)}/>
-          <div id="text">
-            <p className="title">{content.right.title}</p>
-            <p className="text">{content.right.text1}</p>
-            <p className="text text2">{content.right.text2}</p>
-            <div className="colorBox"></div>
+          <div id="right">
+            <img src={require('../img/home/' + middle2.image)}/>
+            <div id="text">
+              <p className="title">{middle2.title}</p>
+              <p className="text">{middle2.text1}</p>
+              <p className="text text2">{middle2.text2}</p>
+              <div className="colorBox"></div>
+            </div>
           </div>
-        </div>
-      </div>
-      <Bottom code={this.state.bottom.code}/>
+        </div>: null
+      }
+      { bottom? <Bottom bottom={this.state.bottom}/> : null}
     </div>
   }
 }

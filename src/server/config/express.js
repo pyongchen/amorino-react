@@ -1,17 +1,19 @@
 let express = require('express');
-let path = require('path');
+let api = require('../router/api/api.config.router');
+let index = require('../router/index.router');
 let ejs = require('ejs');
 let app = express();
 
-// 设置view模板
-app.engine('html', ejs.renderFile);
+module.exports = () => {
+  // 设置view模板
+  app.engine('html', ejs.renderFile);
 
-//设置静态文件
-app.use('/public', express.static(path.join(__dirname, '../../../build/public')));
+  // 设置express中间件
+  require('./middleware').setExpressMiddleware(app);
 
-app.get('/', (req, res) => {
-  console.log('13321');
-  res.sendFile(path.join(__dirname, '../../../build/index.html'))
-});
+  // 设置express应用路由
+  api(app);
+  app.use('/', index);
 
-module.exports = app;
+  return app;
+};

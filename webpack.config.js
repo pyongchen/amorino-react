@@ -44,7 +44,8 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'js/vendors.js' }),
     new ExtractTextPlugin("css/bundle.css"),
     new webpack.ProvidePlugin({ $: "jquery" }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    // new OpenBrowserPlugin({url: 'http://127.0.0.1:8888'})
   ]
 };
 
