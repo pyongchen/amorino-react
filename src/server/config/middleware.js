@@ -1,5 +1,6 @@
 let session = require('express-session');
 let cookieParser = require('cookie-parser');
+let compression = require('compression');
 let path = require('path');
 let express = require('express');
 let cors = require('cors');
@@ -8,6 +9,9 @@ let bodyParser = require('body-parser');
 exports.setExpressMiddleware = (app) => {
   //设置静态文件
   app.use('/public', express.static(path.join(__dirname, '../../../build/public')));
+
+  // 压缩文件
+  app.use(compression());
 
   //解析cookie
   app.use(cookieParser());
