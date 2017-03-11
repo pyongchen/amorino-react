@@ -42,5 +42,6 @@
 ```
 
 # 项目启动
-yarn add
-gulp
+1. yarn add
+2. gulp
+3. 打开浏览器: localhost:8888
