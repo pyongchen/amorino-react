@@ -1,0 +1,71 @@
+@import "colorBox"
+$gray: #e7ecec
+
+.loginBox
+  position: fixed
+  width: 50%
+  height: 40vh
+  top: 30%
+  left: 0
+  right: 0
+  margin: auto
+  z-index: 999
+  padding-left: 1rem
+  background-color: $gray
+  .left, .right
+    height: 100%
+    float: left
+  .left
+    width: 65%
+    margin-top: 1rem
+    .title
+      font-size: 2rem
+    .message
+      width: 70%
+      font-size: 1rem
+      margin-bottom: 0.5rem
+    .btnGroup
+      width: 50%
+      margin-left: 10%
+      font-size: 1rem
+      .username, .password
+        width: 100%
+        height: 2rem
+        margin-top: 1rem
+        border-radius: 5px
+        border: solid 1px $gray
+        background-color: #d7e2ea
+        padding-left: 1rem
+      .submit
+        width: 100%
+        border: solid 1px gray
+        margin-top: 1rem
+        height: 2rem
+        background: #d9e0e6
+        line-height: 2rem
+        text-align: start
+        .text
+          margin-left: 2rem
+        .icon
+          float: right
+          margin-right: 1rem
+  .right
+    width: 35%
+    padding-top: 1rem
+    .icon
+      position: absolute
+      text-align: end
+      font-size: 1.2rem
+      right: 1rem
+      top: 1rem
+      color: gray
+    .icon:hover
+      transform: scale(1.2)
+      font-weight: bold
+    .content
+      margin-top: 2rem
+      img
+        width: 6rem
+        height: 6rem
+        display: block
+        margin: 1rem auto

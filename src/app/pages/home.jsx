@@ -41,7 +41,7 @@ class Home extends React.Component {
         middle2 = this.state.middle[1],
         images = this.state.images,
         bottom = this.state.bottom;
-    return <div>
+    return <div id="home">
       {images.length != 0 ? <Slider images={images}/> : null}
       {this.state.middle ?
         <div id="content">
