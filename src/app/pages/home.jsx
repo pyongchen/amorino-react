@@ -15,26 +15,18 @@ class Home extends React.Component {
     }
   }
   componentWillMount() {
-    axios.get(api.slider).then((res) => {
+    let get1 = axios.get(api.slider);
+    let get2 = axios.get(api.bottom, {
+      params: { lang: 'Zh'}
+    });
+    let get3 = axios.get(api.middle);
+    Promise.all([get1, get2, get3]).then((res) => {
       this.setState({
-        images: this.state.images.concat(res.data.data)
+        images: res[0].data.data,       // 轮播数组
+        bottom: res[1].data.data[0],    // 中间数据
+        middle: res[2].data.data,       // 底部数据
       });
     });
-    axios.get(api.bottom, {
-      params: {
-        lang: 'Zh'
-      }
-    }).then((res) => {
-      this.setState({
-        bottom: res.data.data[0]
-      })
-    });
-    axios.get(api.middle).then((res) => {
-      console.log(res.data.data);
-      this.setState({
-        middle: res.data.data
-      })
-    })
   }
   render() {
     let middle1 = this.state.middle[0],
